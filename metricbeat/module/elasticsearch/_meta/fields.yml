@@ -605,15 +605,15 @@
                 - name: rejected
                   path: elasticsearch.node.stats.thread_pool.search.rejected.count
                   type: alias
-            - name: write
-              type: group
-              fields:
-                - name: queue
-                  path: elasticsearch.node.stats.thread_pool.write.queue.count
-                  type: alias
-                - name: rejected
-                  path: elasticsearch.node.stats.thread_pool.write.rejected.count
-                  type: alias
+#            - name: write
+#              type: group
+#              fields:
+#                - name: queue
+#                  path: elasticsearch.node.stats.thread_pool.write.queue.count
+#                  type: alias
+#                - name: rejected
+#                  path: elasticsearch.node.stats.thread_pool.write.rejected.count
+#                  type: alias
     - name: indices_stats
       type: group
       fields:

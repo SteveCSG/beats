@@ -242,7 +242,7 @@ var (
 					"usage": s.Object{
 						"bytes": c.Str("usage_in_bytes"),
 					},
-				}),
+				}, c.DictOptional), // No os.cgroup.memory reported by ES on podman
 			}, c.DictOptional),
 		}),
 		"process": c.Dict("process", s.Schema{
@@ -256,7 +256,7 @@ var (
 			"write":  c.Dict("write", threadPoolStatsSchema, c.DictOptional),
 			"get":    c.Dict("get", threadPoolStatsSchema),
 			"search": c.Dict("search", threadPoolStatsSchema),
-		}),
+		}, c.DictOptional), // No thread_pool.write reported by ES on podman
 	}
 
 	collectorSchema = s.Schema{
