@@ -112,7 +112,7 @@ var (
 					// The two following values are currently string. See https://github.com/elastic/elasticsearch/pull/26166
 					"limit_in_bytes": c.Str("limit_in_bytes"),
 					"usage_in_bytes": c.Str("usage_in_bytes"),
-				}),
+				}, c.DictOptional), // No memory reported by ES on Podman
 			}, c.DictOptional),
 		}),
 		"process": c.Dict("process", s.Schema{
@@ -144,7 +144,7 @@ var (
 		"thread_pool": c.Dict("thread_pool", s.Schema{
 			"bulk":       c.Dict("bulk", threadPoolStatsSchema, c.DictOptional),
 			"index":      c.Dict("index", threadPoolStatsSchema, c.DictOptional),
-			"write":      c.Dict("write", threadPoolStatsSchema),
+			"write":      c.Dict("write", threadPoolStatsSchema, c.DictOptional),
 			"generic":    c.Dict("generic", threadPoolStatsSchema),
 			"get":        c.Dict("get", threadPoolStatsSchema),
 			"management": c.Dict("management", threadPoolStatsSchema),
